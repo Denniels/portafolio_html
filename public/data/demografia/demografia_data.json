@@ -1,0 +1,137 @@
+{
+  "metadata": {
+    "fecha_actualizacion": "2025-06-26T16:50:45.775108",
+    "fuente_datos": "API Banco Mundial",
+    "periodo_analisis": "2010-2023",
+    "total_registros": 14,
+    "version_analisis": "1.0",
+    "notebook_origen": "03_Analisis_Demografia.ipynb"
+  },
+  "datos": {
+    "poblacion_historica": [
+      {
+        "año": 2010,
+        "poblacion_total": 17181464
+      },
+      {
+        "año": 2011,
+        "poblacion_total": 17351816
+      },
+      {
+        "año": 2012,
+        "poblacion_total": 17519119
+      },
+      {
+        "año": 2013,
+        "poblacion_total": 17687006
+      },
+      {
+        "año": 2014,
+        "poblacion_total": 17864195
+      },
+      {
+        "año": 2015,
+        "poblacion_total": 18047625
+      },
+      {
+        "año": 2016,
+        "poblacion_total": 18267221
+      },
+      {
+        "año": 2017,
+        "poblacion_total": 18558868
+      },
+      {
+        "año": 2018,
+        "poblacion_total": 18893191
+      },
+      {
+        "año": 2019,
+        "poblacion_total": 19197744
+      },
+      {
+        "año": 2020,
+        "poblacion_total": 19370624
+      },
+      {
+        "año": 2021,
+        "poblacion_total": 19456334
+      },
+      {
+        "año": 2022,
+        "poblacion_total": 19553036
+      },
+      {
+        "año": 2023,
+        "poblacion_total": 19658835
+      }
+    ],
+    "estadisticas_resumen": {
+      "poblacion_actual": 19658835,
+      "año_actual": 2023,
+      "crecimiento_total_periodo": 2477371,
+      "crecimiento_porcentual": 14.42,
+      "densidad_poblacional": 26.0
+    },
+    "proyecciones": [
+      {
+        "año": 2024,
+        "poblacion_proyectada": 20040103
+      },
+      {
+        "año": 2025,
+        "poblacion_proyectada": 20249192
+      },
+      {
+        "año": 2026,
+        "poblacion_proyectada": 20458281
+      },
+      {
+        "año": 2027,
+        "poblacion_proyectada": 20667370
+      },
+      {
+        "año": 2028,
+        "poblacion_proyectada": 20876460
+      },
+      {
+        "año": 2029,
+        "poblacion_proyectada": 21085549
+      },
+      {
+        "año": 2030,
+        "poblacion_proyectada": 21294638
+      }
+    ],
+    "modelo_estadisticas": {
+      "r2_score": 0.9846,
+      "pendiente": 209089.22,
+      "intercepto": -403156473.11
+    }
+  },
+  "conclusiones": {
+    "resumen_ejecutivo": "Análisis demográfico de Chile basado en API Banco Mundial para el período 2010-2023. Se observa una tendencia de crecimiento poblacional sostenido.",
+    "hallazgos_principales": [
+      {
+        "categoria": "Crecimiento Poblacional",
+        "descripcion": "Chile presenta un crecimiento poblacional de 14.42% en el período analizado",
+        "impacto": "positivo"
+      },
+      {
+        "categoria": "Densidad Poblacional",
+        "descripcion": "Densidad poblacional de 26.0 hab/km², considerada baja a nivel internacional",
+        "impacto": "neutral"
+      },
+      {
+        "categoria": "Proyecciones",
+        "descripcion": "Las proyecciones indican continuidad en el crecimiento poblacional hasta 2030",
+        "impacto": "positivo"
+      }
+    ],
+    "recomendaciones": [
+      "Continuar monitoreando las tendencias demográficas para la planificación urbana",
+      "Considerar políticas públicas para gestionar el crecimiento poblacional",
+      "Desarrollar infraestructura acorde al crecimiento proyectado"
+    ]
+  }
+}

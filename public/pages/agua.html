@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Calidad del Agua en Chile | Portafolio de Ciencia de Datos</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="icon" type="image/png" href="../css/favicon.png" />
+  <style>
+    /* Mejoras visuales específicas para la página de agua */
+    #banner-agua {
+      background: linear-gradient(90deg, #e0f7fa 0%, #b2ebf2 100%);
+      border-radius: 18px;
+      padding: 2em 1em 1.5em 1em;
+      max-width: 900px;
+      margin: 0 auto 2em auto;
+      box-shadow: 0 2px 16px #00b4ff33;
+    }
+    #banner-stats .stat {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 1px 6px #00b4ff22;
+      padding: 1em 1.5em;
+      min-width: 120px;
+      text-align: center;
+      font-size: 1.1em;
+      color: #007c91;
+    }
+    #panel-visualizaciones {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2em;
+      justify-content: center;
+      margin-bottom: 2em;
+    }
+    .viz-card {
+      background: #fafdff;
+      border-radius: 14px;
+      box-shadow: 0 1px 8px #00b4ff11;
+      padding: 1.5em 1em 1em 1em;
+      max-width: 480px;
+      min-width: 320px;
+      flex: 1 1 340px;
+      margin-bottom: 1em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .viz-card h3 {
+      color: #0097a7;
+      margin-bottom: 0.7em;
+      font-size: 1.25em;
+    }
+    .viz-card .explicacion {
+      font-size: 0.98em;
+      color: #444;
+      margin-top: 0.7em;
+      margin-bottom: 0.5em;
+      text-align: left;
+    }
+    .tabla-scroll {
+      overflow-x: auto;
+      width: 100%;
+      margin-bottom: 1em;
+    }
+    .tabla-scroll table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 0.98em;
+    }
+    .tabla-scroll th, .tabla-scroll td {
+      border: 1px solid #b2ebf2;
+      padding: 0.5em 0.7em;
+      text-align: left;
+    }
+    .tabla-scroll th {
+      background: #e0f7fa;
+      color: #007c91;
+    }
+    @media (max-width: 900px) {
+      #panel-visualizaciones {
+        flex-direction: column;
+        gap: 1.2em;
+      }
+      .viz-card {
+        max-width: 98vw;
+      }
+    }
+    #conclusiones-agua {
+      background: #e0f7fa;
+      border-radius: 14px;
+      box-shadow: 0 1px 8px #00b4ff11;
+      padding: 1.5em 1em 1em 1em;
+      max-width: 900px;
+      margin: 0 auto 2em auto;
+    }
+    #conclusiones-agua h2 {
+      color: #0097a7;
+      margin-bottom: 0.7em;
+    }
+    #conclusiones-agua ul {
+      margin-left: 1.2em;
+      color: #333;
+    }
+    .fuente-agua {
+      font-size: 0.95em;
+      color: #007c91;
+      margin-top: 1.2em;
+      text-align: right;
+    }
+    .content {
+      color: var(--main-text);
+      background: var(--main-bg);
+      transition: background 0.4s, color 0.4s;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <nav>
+        <ul class="sidebar-nav">
+          <li><a href="../index.html">Principal</a></li>
+          <li><a href="emisiones.html">Emisiones CO₂</a></li>
+          <li><a href="agua.html">Calidad del Agua</a></li>
+          <li><a href="demografia.html">Demografía</a></li>
+          <li><a href="presupuesto.html">Presupuesto Público</a></li>
+          <li><a href="curriculum.html">Currículum</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="productos.html">Productos</a></li>
+        </ul>
+        <section id="contacto" style="margin-top:2em;text-align:center;">
+          <h2>Contacto</h2>
+          <p>Puedes encontrarme en:</p>
+          <a href="https://github.com/Denniels" target="_blank" style="margin:0 1em;display:inline-block;">
+            <img src="https://img.icons8.com/ios-glyphs/40/000000/github.png" alt="GitHub" style="vertical-align:middle;"/> GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/daniel-andres-mardones-sanhueza-27b73777" target="_blank" style="margin:0 1em;display:inline-block;">
+            <img src="https://img.icons8.com/ios-filled/40/0a66c2/linkedin.png" alt="LinkedIn" style="vertical-align:middle;"/> LinkedIn
+          </a>
+        </section>
+    <div id="theme-selector" style="margin:2em 0 0 0;padding:1.2em 1em 1.5em 1em;background:rgba(0,180,255,0.07);border-radius:14px;box-shadow:0 1px 8px #00b4ff11;text-align:center;">
+      <h3 style="margin-bottom:0.7em;font-size:1.1em;color:#0077b6;">Tema y color</h3>
+      <div style="display:flex;flex-direction:column;gap:0.7em;align-items:center;">
+        <div style="margin-bottom:0.3em;">
+          <label style="font-weight:600;margin-right:0.7em;">Modo:</label>
+          <select id="theme-mode" style="padding:0.3em 1em;border-radius:8px;border:1px solid #b2ebf2;font-size:1em;">
+            <option value="light">Claro</option>
+            <option value="dark">Oscuro</option>
+          </select>
+        </div>
+        <div>
+          <label style="font-weight:600;margin-right:0.7em;">Color:</label>
+          <select id="theme-color" style="padding:0.3em 1em;border-radius:8px;border:1px solid #b2ebf2;font-size:1em;">
+            <option value="blue">Azul</option>
+            <option value="green">Verde</option>
+            <option value="purple">Púrpura</option>
+            <option value="gold">Dorado</option>
+            <option value="gray">Gris</option>
+          </select>
+        </div>
+      </div>
+    </div>
+      </nav>
+    </aside>
+
+    <main class="content">
+      <header style="text-align:center;position:relative;">
+        <div id="banner-agua" style="background:linear-gradient(90deg,rgba(0,180,255,0.18),rgba(0,180,255,0.08));border-radius:18px;padding:2em 1em 1.5em 1em;max-width:900px;margin:0 auto 2em auto;box-shadow:0 2px 16px #00b4ff33;">
+          <h1 style="font-size:2.7em;font-weight:700;letter-spacing:-1px;">Calidad del Agua en Chile</h1>
+          <p style="font-size:1.25em;max-width:750px;margin:0 auto 1.5em auto;">
+            Análisis exploratorio y visualización interactiva de la calidad del agua en Chile, integrando datos abiertos, programación y ciencia de datos para obtener hallazgos relevantes y reproducibles.
+          </p>
+          <div id="banner-stats" style="display:flex;flex-wrap:wrap;justify-content:center;gap:1.5em;margin-top:1em;">
+            <!-- Estadísticas del estudio se insertan dinámicamente -->
+          </div>
+        </div>
+      </header>
+
+      <section id="panel-visualizaciones" style="margin-top:2em;max-width:950px;margin-left:auto;margin-right:auto;">
+        <div id="loader-agua" style="display:flex;justify-content:center;align-items:center;height:180px;">
+          <div class="spinner-agua"></div>
+        </div>
+        <!-- Visualizaciones y explicaciones se insertan dinámicamente por agua.js -->
+      </section>
+
+      <section id="conclusiones-agua" style="margin-top:2.5em;max-width:900px;margin-left:auto;margin-right:auto;background:rgba(0,180,255,0.07);border-radius:14px;padding:1.5em 2em 1.5em 2em;box-shadow:0 1px 8px #00b4ff11;">
+        <!-- Conclusiones y hallazgos destacados -->
+      </section>
+
+      <section id="fuentes-agua" style="margin-top:2em;max-width:900px;margin-left:auto;margin-right:auto;text-align:center;">
+        <h3 style="margin-bottom:0.5em;">Fuentes de Datos y Recursos</h3>
+        <ul style="list-style:none;padding:0;">
+          <li><a href="https://datos.mma.gob.cl/" target="_blank">Ministerio del Medio Ambiente - Datos Abiertos</a></li>
+          <li><a href="https://github.com/Denniels/portafolio_pro" target="_blank">Repositorio del Proyecto en GitHub</a></li>
+        </ul>
+        <p style="font-size:0.95em;color:#555;margin-top:0.7em;">Visualizaciones y análisis generados con Python, Pandas, y Chart.js. Pipeline reproducible y compatible con GitHub Pages.</p>
+      </section>
+    </main>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="../js/agua.js"></script>
+  <style>
+    .spinner-agua {
+      border: 6px solid #e0f7fa;
+      border-top: 6px solid #00b4ff;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      animation: spin-agua 1s linear infinite;
+      margin: 0 auto;
+    }
+    @keyframes spin-agua {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @media (max-width: 700px) {
+      .container { flex-direction: column; }
+      .sidebar { width: 100%; min-width: 0; padding: 10px; }
+      .content { padding: 10px; }
+      #banner-agua, #conclusiones-agua, #fuentes-agua { max-width: 99vw; padding: 1em 0.5em; }
+      #panel-visualizaciones { gap: 0.7em; }
+      .viz-card { min-width: 0; max-width: 99vw; }
+    }
+    .sidebar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .sidebar-nav li {
+    margin: 0.7em 0;
+  }
+  .sidebar-nav a {
+    display: block;
+    padding: 0.85em 1.5em;
+    border-radius: 10px;
+    color: #0077b6;
+    font-weight: 600;
+    font-size: 1.08em;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    background: linear-gradient(90deg, #e0f7fa 0%, #b2ebf2 100%);
+    box-shadow: 0 1px 6px #00b4ff11;
+    transition: background 0.3s, color 0.3s, transform 0.18s;
+    position: relative;
+    overflow: hidden;
+  }
+  .sidebar-nav a:hover, .sidebar-nav a:focus {
+    background: linear-gradient(90deg, #00b4ff 0%, #90e0ef 100%);
+    color: #fff;
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 4px 16px #00b4ff33;
+  }
+  .sidebar-nav a:active {
+    background: linear-gradient(90deg, #0077b6 0%, #48cae4 100%);
+    color: #fff;
+    transform: scale(0.98);
+  }
+  .sidebar-nav a::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0; top: 0; right: 0; bottom: 0;
+    background: rgba(0,180,255,0.08);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+  }
+  .sidebar-nav a:hover::after, .sidebar-nav a:focus::after {
+    opacity: 1;
+  }
+  </style>
+  <script>
+  // Selector de tema y color
+  function applyTheme(mode, color) {
+    document.body.classList.remove('theme-dark', 'theme-light', 'theme-blue', 'theme-green', 'theme-purple', 'theme-gold', 'theme-gray');
+    if (mode === 'dark') {
+      document.body.classList.add('theme-dark');
+    } else {
+      document.body.classList.add('theme-light');
+    }
+    document.body.classList.add('theme-' + color);
+  }
+  function saveTheme(mode, color) {
+    localStorage.setItem('themeMode', mode);
+    localStorage.setItem('themeColor', color);
+  }
+  function loadTheme() {
+    const mode = localStorage.getItem('themeMode') || 'light';
+    const color = localStorage.getItem('themeColor') || 'blue';
+    applyTheme(mode, color);
+    const modeSel = document.getElementById('theme-mode');
+    const colorSel = document.getElementById('theme-color');
+    if (modeSel) modeSel.value = mode;
+    if (colorSel) colorSel.value = color;
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    loadTheme();
+    const modeSel = document.getElementById('theme-mode');
+    const colorSel = document.getElementById('theme-color');
+    if (modeSel && colorSel) {
+      modeSel.addEventListener('change', function() {
+        applyTheme(modeSel.value, colorSel.value);
+        saveTheme(modeSel.value, colorSel.value);
+      });
+      colorSel.addEventListener('change', function() {
+        applyTheme(modeSel.value, colorSel.value);
+        saveTheme(modeSel.value, colorSel.value);
+      });
+    }
+  });
+  </script>
+</body>
+</html>

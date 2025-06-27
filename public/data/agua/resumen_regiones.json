@@ -1,0 +1,66 @@
+[
+  {
+    "region":"Araucanía",
+    "indice_contaminacion_mean":19.09,
+    "indice_contaminacion_count":23,
+    "FEC_MEDICION_sum":2332,
+    "Conductividad Específica (µS\/cm a 25°C)_mean":51.78,
+    "Ph a 25°C_mean":7.61
+  },
+  {
+    "region":"Arica y Parinacota",
+    "indice_contaminacion_mean":70.96,
+    "indice_contaminacion_count":3,
+    "FEC_MEDICION_sum":12,
+    "Conductividad Específica (µS\/cm a 25°C)_mean":1188.41,
+    "Ph a 25°C_mean":8.98
+  },
+  {
+    "region":"Aysén",
+    "indice_contaminacion_mean":38.4,
+    "indice_contaminacion_count":2,
+    "FEC_MEDICION_sum":10,
+    "Conductividad Específica (µS\/cm a 25°C)_mean":184.02,
+    "Ph a 25°C_mean":8.04
+  },
+  {
+    "region":"Coquimbo",
+    "indice_contaminacion_mean":42.85,
+    "indice_contaminacion_count":3,
+    "FEC_MEDICION_sum":705,
+    "Conductividad Específica (µS\/cm a 25°C)_mean":311.79,
+    "Ph a 25°C_mean":8.25
+  },
+  {
+    "region":"Los Lagos",
+    "indice_contaminacion_mean":15.43,
+    "indice_contaminacion_count":23,
+    "FEC_MEDICION_sum":2763,
+    "Conductividad Específica (µS\/cm a 25°C)_mean":69.12,
+    "Ph a 25°C_mean":7.39
+  },
+  {
+    "region":"Los Ríos",
+    "indice_contaminacion_mean":12.41,
+    "indice_contaminacion_count":16,
+    "FEC_MEDICION_sum":2070,
+    "Conductividad Específica (µS\/cm a 25°C)_mean":49.05,
+    "Ph a 25°C_mean":7.43
+  },
+  {
+    "region":"Metropolitana",
+    "indice_contaminacion_mean":60.19,
+    "indice_contaminacion_count":4,
+    "FEC_MEDICION_sum":682,
+    "Conductividad Específica (µS\/cm a 25°C)_mean":164.43,
+    "Ph a 25°C_mean":9.34
+  },
+  {
+    "region":"O'Higgins",
+    "indice_contaminacion_mean":67.03,
+    "indice_contaminacion_count":6,
+    "FEC_MEDICION_sum":745,
+    "Conductividad Específica (µS\/cm a 25°C)_mean":505.0,
+    "Ph a 25°C_mean":8.11
+  }
+]

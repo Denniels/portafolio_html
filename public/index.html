@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portafolio Daniel</title>
+  <link rel="stylesheet" href="css/styles.css" />
+
+<style>
+  :root {
+    --sidebar-bg: #fafdff;
+    --sidebar-link: #0077b6;
+    --sidebar-link-bg: linear-gradient(90deg, #e0f7fa 0%, #b2ebf2 100%);
+    --sidebar-link-hover: #fff;
+    --sidebar-link-hover-bg: linear-gradient(90deg, #00b4ff 0%, #90e0ef 100%);
+    --sidebar-link-active-bg: linear-gradient(90deg, #0077b6 0%, #48cae4 100%);
+    --sidebar-link-active: #fff;
+    --main-bg: #f8fafd;
+    --main-text: #1a2233;
+    --card-bg: #f8fafd;
+    --card-shadow: #0001;
+    --header-bg: rgba(0,180,255,0.13);
+    --header-shadow: #00b4ff22;
+    --btn-bg: #0077b6;
+    --btn-text: #fff;
+  }
+  body.theme-dark {
+    --sidebar-bg: #1a2233;
+    --sidebar-link: #e0f7fa;
+    --sidebar-link-bg: linear-gradient(90deg, #232c43 0%, #2b3a5a 100%);
+    --sidebar-link-hover: #fff;
+    --sidebar-link-hover-bg: linear-gradient(90deg, #00b4ff 0%, #232c43 100%);
+    --sidebar-link-active-bg: linear-gradient(90deg, #0077b6 0%, #232c43 100%);
+    --sidebar-link-active: #fff;
+    --main-bg: #181c24;
+    --main-text: #e0f7fa;
+    --card-bg: #232c43;
+    --card-shadow: #0006;
+    --header-bg: rgba(0,180,255,0.08);
+    --header-shadow: #00b4ff33;
+    --btn-bg: #00b4ff;
+    --btn-text: #181c24;
+  }
+  body.theme-blue { /* ...paletas de color, sin cambios... */ }
+  body.theme-green { /* ...paletas de color, sin cambios... */ }
+  body.theme-purple { /* ...paletas de color, sin cambios... */ }
+  body.theme-gold { /* ...paletas de color, sin cambios... */ }
+  body.theme-gray { /* ...paletas de color, sin cambios... */ }
+
+  body {
+    background: var(--main-bg);
+    color: var(--main-text);
+    transition: background 0.4s, color 0.4s;
+  }
+  .sidebar {
+    background: var(--sidebar-bg);
+    transition: background 0.4s;
+  }
+  .content {
+    color: var(--main-text);
+  }
+  .card {
+    background: var(--card-bg) !important;
+    box-shadow: 0 2px 8px var(--card-shadow) !important;
+    color: var(--main-text);
+    transition: background 0.4s, color 0.4s;
+  }
+  header > div {
+    background: var(--header-bg) !important;
+    box-shadow: 0 2px 12px var(--header-shadow) !important;
+    color: var(--main-text);
+    transition: background 0.4s, color 0.4s;
+  }
+  .btn {
+    background: var(--btn-bg) !important;
+    color: var(--btn-text) !important;
+    border: none;
+    border-radius: 8px;
+    padding: 0.7em 1.5em;
+    font-weight: 600;
+    font-size: 1em;
+    box-shadow: 0 1px 6px #00b4ff11;
+    transition: background 0.3s, color 0.3s;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn:hover, .btn:focus {
+    filter: brightness(1.08) contrast(1.1);
+    box-shadow: 0 4px 16px #00b4ff33;
+  }
+  body.theme-blue {
+    --sidebar-link-bg: linear-gradient(90deg, #e0f7fa 0%, #b2ebf2 100%);
+    --sidebar-link-hover-bg: linear-gradient(90deg, #00b4ff 0%, #90e0ef 100%);
+    --sidebar-link-active-bg: linear-gradient(90deg, #0077b6 0%, #48cae4 100%);
+    --sidebar-link: #0077b6;
+  }
+  body.theme-green {
+    --sidebar-link-bg: linear-gradient(90deg, #e0fbe7 0%, #b2f2b2 100%);
+    --sidebar-link-hover-bg: linear-gradient(90deg, #00b47a 0%, #90efc2 100%);
+    --sidebar-link-active-bg: linear-gradient(90deg, #00774a 0%, #48e4ae 100%);
+    --sidebar-link: #00774a;
+  }
+  body.theme-purple {
+    --sidebar-link-bg: linear-gradient(90deg, #f3e0fa 0%, #d1b2eb 100%);
+    --sidebar-link-hover-bg: linear-gradient(90deg, #7c3aed 0%, #b490ef 100%);
+    --sidebar-link-active-bg: linear-gradient(90deg, #5f249f 0%, #a048e4 100%);
+    --sidebar-link: #5f249f;
+  }
+  body.theme-gold {
+    --sidebar-link-bg: linear-gradient(90deg, #fffbe0 0%, #f2e6b2 100%);
+    --sidebar-link-hover-bg: linear-gradient(90deg, #ffd700 0%, #ffe090 100%);
+    --sidebar-link-active-bg: linear-gradient(90deg, #b69c00 0%, #e4c848 100%);
+    --sidebar-link: #b69c00;
+  }
+  body.theme-gray {
+    --sidebar-link-bg: linear-gradient(90deg, #f3f4f6 0%, #d1d5db 100%);
+    --sidebar-link-hover-bg: linear-gradient(90deg, #6b7280 0%, #a1a1aa 100%);
+    --sidebar-link-active-bg: linear-gradient(90deg, #374151 0%, #6b7280 100%);
+    --sidebar-link: #374151;
+  }
+  .sidebar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .sidebar-nav li {
+    margin: 0.7em 0;
+  }
+  .sidebar-nav a {
+    display: block;
+    padding: 0.85em 1.5em;
+    border-radius: 10px;
+    color: var(--sidebar-link);
+    font-weight: 600;
+    font-size: 1.08em;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    background: var(--sidebar-link-bg);
+    box-shadow: 0 1px 6px #00b4ff11;
+    transition: background 0.3s, color 0.3s, transform 0.18s;
+    position: relative;
+    overflow: hidden;
+  }
+  .sidebar-nav a:hover, .sidebar-nav a:focus {
+    background: var(--sidebar-link-hover-bg);
+    color: var(--sidebar-link-hover);
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 4px 16px #00b4ff33;
+  }
+  .sidebar-nav a:active {
+    background: var(--sidebar-link-active-bg);
+    color: var(--sidebar-link-active);
+    transform: scale(0.98);
+  }
+  .sidebar-nav a::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0; top: 0; right: 0; bottom: 0;
+    background: rgba(0,180,255,0.08);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+  }
+  .sidebar-nav a:hover::after, .sidebar-nav a:focus::after {
+    opacity: 1;
+  }
+  .content {
+      color: var(--main-text);
+      background: var(--main-bg);
+      transition: background 0.4s, color 0.4s;
+    }
+</style>
+
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>Portafolio</h2>
+      <nav>
+        <ul class="sidebar-nav">
+          <li><a href="index.html">Principal</a></li>
+          <li><a href="pages/emisiones.html">Emisiones CO₂</a></li>
+          <li><a href="pages/agua.html">Calidad del Agua</a></li>
+          <li><a href="pages/demografia.html">Demografía</a></li>
+          <li><a href="pages/presupuesto.html">Presupuesto Público</a></li>
+          <li><a href="pages/curriculum.html">Currículum</a></li>
+          <li><a href="pages/servicios.html">Servicios</a></li>
+          <li><a href="pages/productos.html">Productos</a></li>
+        </ul>
+
+<section id="contacto" style="margin-top:2em;text-align:center;">
+            <h2>Contacto</h2>
+              <p>Puedes encontrarme en:</p>
+              <a href="https://github.com/Denniels" target="_blank" style="margin:0 1em;display:inline-block;">
+              <img src="https://img.icons8.com/ios-glyphs/40/000000/github.png" alt="GitHub" style="vertical-align:middle;"/> GitHub
+              </a>
+              <a href="https://www.linkedin.com/in/daniel-andres-mardones-sanhueza-27b73777" target="_blank" style="margin:0 1em;display:inline-block;">
+              <img src="https://img.icons8.com/ios-filled/40/0a66c2/linkedin.png" alt="LinkedIn" style="vertical-align:middle;"/> LinkedIn
+            </a>
+          </section>
+<div id="theme-selector" style="margin:2em 0 0 0;padding:1.2em 1em 1.5em 1em;background:rgba(0,180,255,0.07);border-radius:14px;box-shadow:0 1px 8px #00b4ff11;text-align:center;">
+  <h3 style="margin-bottom:0.7em;font-size:1.1em;color:#0077b6;">Tema y color</h3>
+  <div style="display:flex;flex-direction:column;gap:0.7em;align-items:center;">
+    <div style="margin-bottom:0.3em;">
+      <label style="font-weight:600;margin-right:0.7em;">Modo:</label>
+      <select id="theme-mode" style="padding:0.3em 1em;border-radius:8px;border:1px solid #b2ebf2;font-size:1em;">
+        <option value="light">Claro</option>
+        <option value="dark">Oscuro</option>
+      </select>
+    </div>
+    <div>
+      <label style="font-weight:600;margin-right:0.7em;">Color:</label>
+      <select id="theme-color" style="padding:0.3em 1em;border-radius:8px;border:1px solid #b2ebf2;font-size:1em;">
+        <option value="blue">Azul</option>
+        <option value="green">Verde</option>
+        <option value="purple">Púrpura</option>
+        <option value="gold">Dorado</option>
+        <option value="gray">Gris</option>
+      </select>
+    </div>
+  </div>
+</div>
+      </nav>
+    </aside>
+    <main class="content">
+      <header style="text-align:center;position:relative;">
+        <div style="background:rgba(0,180,255,0.13);border-radius:18px;padding:2em 1em 1.5em 1em;max-width:800px;margin:0 auto 2em auto;box-shadow:0 2px 12px #00b4ff22;">
+          <h1 style="font-size:2.5em;">Portafolio de Ciencia de Datos y Visualización</h1>
+          <p style="font-size:1.2em;max-width:700px;margin:0 auto 1.5em auto;">
+            Bienvenido a mi portafolio interactivo. Aquí encontrarás análisis de datos ambientales y sociales de Chile, visualizaciones avanzadas, dashboards y herramientas reproducibles. Explora cada sección para descubrir insights y resultados clave.
+          </p>
+          <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1.5em;margin-top:1em;">
+            <div style="background:rgba(0,180,255,0.18);color:#0077b6;font-weight:bold;padding:1em 2em;border-radius:12px;min-width:180px;box-shadow:0 1px 6px #00b4ff11;">
+              <span style="font-size:1.3em;">4</span> estudios
+            </div>
+            <div style="background:rgba(0,180,255,0.18);color:#0077b6;font-weight:bold;padding:1em 2em;border-radius:12px;min-width:180px;box-shadow:0 1px 6px #00b4ff11;">
+              <span style="font-size:1.3em;">+20</span> visualizaciones
+            </div>
+            <div style="background:rgba(0,180,255,0.18);color:#0077b6;font-weight:bold;padding:1em 2em;border-radius:12px;min-width:180px;box-shadow:0 1px 6px #00b4ff11;">
+              <span style="font-size:1.3em;">+4</span> fuentes de datos
+            </div>
+            <div style="background:rgba(0,180,255,0.18);color:#0077b6;font-weight:bold;padding:1em 2em;border-radius:12px;min-width:180px;box-shadow:0 1px 6px #00b4ff11;">
+              <span style="font-size:1.3em;">2</span> apps en desarrollo
+            </div>
+          </div>
+        </div>
+      </header>
+      <section id="dashboard-index" style="display:flex;flex-wrap:wrap;gap:2em;justify-content:center;align-items:stretch;">
+        <div class="card" style="flex:1 1 300px;max-width:350px;background:#f8fafd;border-radius:12px;box-shadow:0 2px 8px #0001;padding:2em;display:flex;flex-direction:column;align-items:center;">
+          <img src="https://img.icons8.com/color/96/000000/earth-planet.png" alt="Emisiones CO2" style="margin-bottom:1em;"/>
+          <h2 style="margin:0 0 0.5em 0;">Emisiones CO₂</h2>
+          <p style="text-align:center;">Análisis y visualización de emisiones de dióxido de carbono por región y año. Incluye mapa interactivo y conclusiones clave.</p>
+          <a href="pages/emisiones.html" class="btn" style="margin-top:auto;">Ver sección</a>
+        </div>
+        <div class="card" style="flex:1 1 300px;max-width:350px;background:#f8fafd;border-radius:12px;box-shadow:0 2px 8px #0001;padding:2em;display:flex;flex-direction:column;align-items:center;">
+          <img src="https://img.icons8.com/color/96/000000/water.png" alt="Calidad del Agua" style="margin-bottom:1em;"/>
+          <h2 style="margin:0 0 0.5em 0;">Calidad del Agua</h2>
+          <p style="text-align:center;">Estudio de la calidad del agua en distintas regiones, con visualizaciones y análisis de tendencias.</p>
+          <a href="pages/agua.html" class="btn" style="margin-top:auto;">Ver sección</a>
+        </div>
+        <div class="card" style="flex:1 1 300px;max-width:350px;background:#f8fafd;border-radius:12px;box-shadow:0 2px 8px #0001;padding:2em;display:flex;flex-direction:column;align-items:center;">
+          <img src="https://img.icons8.com/color/96/000000/group-background-selected.png" alt="Demografía" style="margin-bottom:1em;"/>
+          <h2 style="margin:0 0 0.5em 0;">Demografía</h2>
+          <p style="text-align:center;">Visualización de datos demográficos y análisis poblacional por región y año.</p>
+          <a href="pages/demografia.html" class="btn" style="margin-top:auto;">Ver sección</a>
+        </div>
+      </section>
+      <section id="dashboard-index-2" style="display:flex;flex-wrap:wrap;gap:2em;justify-content:center;align-items:stretch;margin-top:2em;">
+        <div class="card" style="flex:1 1 300px;max-width:350px;background:#f8fafd;border-radius:12px;box-shadow:0 2px 8px #0001;padding:2em;display:flex;flex-direction:column;align-items:center;">
+          <img src="https://img.icons8.com/color/96/000000/money-bag.png" alt="Presupuesto Público" style="margin-bottom:1em;"/>
+          <h2 style="margin:0 0 0.5em 0;">Presupuesto Público</h2>
+          <p style="text-align:center;">Análisis del presupuesto público y su distribución regional.</p>
+          <a href="pages/presupuesto.html" class="btn" style="margin-top:auto;">Ver sección</a>
+        </div>
+        <div class="card" style="flex:1 1 300px;max-width:350px;background:#f8fafd;border-radius:12px;box-shadow:0 2px 8px #0001;padding:2em;display:flex;flex-direction:column;align-items:center;">
+          <img src="https://img.icons8.com/color/96/000000/resume.png" alt="Currículum" style="margin-bottom:1em;"/>
+          <h2 style="margin:0 0 0.5em 0;">Currículum</h2>
+          <p style="text-align:center;">Trayectoria profesional y académica, experiencia y formación.</p>
+          <a href="pages/curriculum.html" class="btn" style="margin-top:auto;">Ver sección</a>
+        </div>
+        <div class="card" style="flex:1 1 300px;max-width:350px;background:#f8fafd;border-radius:12px;box-shadow:0 2px 8px #0001;padding:2em;display:flex;flex-direction:column;align-items:center;">
+          <img src="https://img.icons8.com/color/96/000000/handshake.png" alt="Servicios" style="margin-bottom:1em;"/>
+          <h2 style="margin:0 0 0.5em 0;">Servicios</h2>
+          <p style="text-align:center;">Servicios profesionales ofrecidos en análisis de datos, visualización y consultoría.</p>
+          <a href="pages/servicios.html" class="btn" style="margin-top:auto;">Ver sección</a>
+        </div>
+        <div class="card" style="flex:1 1 300px;max-width:350px;background:#f8fafd;border-radius:12px;box-shadow:0 2px 8px #0001;padding:2em;display:flex;flex-direction:column;align-items:center;">
+          <img src="https://img.icons8.com/color/96/000000/shopping-cart.png" alt="Productos" style="margin-bottom:1em;"/>
+          <h2 style="margin:0 0 0.5em 0;">Productos</h2>
+          <p style="text-align:center;">Catálogo de productos y herramientas desarrolladas.</p>
+          <a href="pages/productos.html" class="btn" style="margin-top:auto;">Ver sección</a>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="js/navigation.js"></script>
+
+  <script>
+  // Selector de tema y color
+  function applyTheme(mode, color) {
+    // Elimina todas las clases de tema previas
+    document.body.classList.remove('theme-dark', 'theme-light', 'theme-blue', 'theme-green', 'theme-purple', 'theme-gold', 'theme-gray');
+    // Aplica el modo (claro/oscuro)
+    if (mode === 'dark') {
+      document.body.classList.add('theme-dark');
+    } else {
+      document.body.classList.add('theme-light');
+    }
+    // Aplica el color
+    document.body.classList.add('theme-' + color);
+  }
+  function saveTheme(mode, color) {
+    localStorage.setItem('themeMode', mode);
+    localStorage.setItem('themeColor', color);
+  }
+  function loadTheme() {
+    const mode = localStorage.getItem('themeMode') || 'light';
+    const color = localStorage.getItem('themeColor') || 'blue';
+    applyTheme(mode, color);
+    const modeSel = document.getElementById('theme-mode');
+    const colorSel = document.getElementById('theme-color');
+    if (modeSel) modeSel.value = mode;
+    if (colorSel) colorSel.value = color;
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    loadTheme();
+    const modeSel = document.getElementById('theme-mode');
+    const colorSel = document.getElementById('theme-color');
+    if (modeSel && colorSel) {
+      modeSel.addEventListener('change', function() {
+        applyTheme(modeSel.value, colorSel.value);
+        saveTheme(modeSel.value, colorSel.value);
+      });
+      colorSel.addEventListener('change', function() {
+        applyTheme(modeSel.value, colorSel.value);
+        saveTheme(modeSel.value, colorSel.value);
+      });
+    }
+  });
+</script>
+
+</body>
+</html>

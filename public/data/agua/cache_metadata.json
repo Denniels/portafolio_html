@@ -1,0 +1,33 @@
+{
+  "generado_en": "2025-06-25T23:15:44.705459",
+  "version": "2.0",
+  "fuentes_datos": [
+    "Registro de Emisiones y Transferencias de Contaminantes (RETC)",
+    "Sistema Nacional de Inventarios de Gases de Efecto Invernadero",
+    "Ministerio del Medio Ambiente de Chile"
+  ],
+  "periodo_analisis": "2023 - 2023",
+  "estadisticas": {
+    "total_regiones": 16,
+    "total_emisiones_ton": 14994273.8,
+    "total_instalaciones": 50,
+    "region_mayor_emision": {
+      "nombre": "Metropolitana",
+      "emisiones": 7479605.55
+    },
+    "region_menor_emision": {
+      "nombre": "Aysén del Gral. Carlos Ibáñez del Campo",
+      "emisiones": 95851.11
+    }
+  },
+  "optimizaciones": {
+    "geometrias_simplificadas": true,
+    "top_instalaciones_limitadas": 50,
+    "compresion_json": true
+  },
+  "compatible_con": {
+    "streamlit_community_cloud": true,
+    "desarrollo_local": true
+  },
+  "ultima_actualizacion": "25/06/2025 23:15"
+}

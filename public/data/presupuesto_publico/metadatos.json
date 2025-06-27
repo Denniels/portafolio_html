@@ -1,0 +1,17 @@
+{
+  "fuentes_datos": [
+    "https://datos.gob.cl/organization/direccion_de_presupuestos",
+    "https://presupuestoabierto.gob.cl/"
+  ],
+  "datasets_generados": [
+    "datos_visualizacion.json",
+    "resumen_ejecutivo.json",
+    "metadatos.json"
+  ],
+  "total_registros": 914,
+  "periodo_analisis": "2023-2025",
+  "metodologia": "Extracción, análisis exploratorio, visualización y modelado predictivo de datos presupuestarios públicos.",
+  "notebook_origen": "04_Analisis_Presupuesto_Publico.ipynb",
+  "actualizacion": "2025-06-26",
+  "descripcion": "Metadatos del análisis de presupuesto público."
+}

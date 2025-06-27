@@ -1,0 +1,62 @@
+{
+  "presupuesto_ministerios": {
+    "labels": [
+      "Ministerio de Defensa",
+      "Ministerio de Justicia",
+      "Ministerio de Obras Públicas",
+      "Ministerio de Educación",
+      "Ministerio de Salud"
+    ],
+    "values": [
+      10771928421,
+      10745106944,
+      8659871946,
+      8583077348,
+      8361579009
+    ],
+    "type": "bar",
+    "explicacion": "Presupuesto asignado a los principales ministerios. Se observa concentración en Defensa, Justicia, Obras Públicas, Educación y Salud."
+  },
+  "transferencias_regiones": {
+    "labels": [
+      "Valparaíso",
+      "Metropolitana",
+      "Ñuble",
+      "Maule",
+      "Tarapacá"
+    ],
+    "values": [
+      10949565328,
+      10647953229,
+      10501958797,
+      10193311120,
+      10035205884
+    ],
+    "type": "bar",
+    "explicacion": "Transferencias a las regiones con mayor asignación presupuestaria."
+  },
+  "distribucion_sectores": {
+    "labels": [
+      "Transporte",
+      "Educación",
+      "Infraestructura",
+      "Agua Potable",
+      "Desarrollo Social",
+      "Salud",
+      "Energía",
+      "Conectividad"
+    ],
+    "values": [
+      84333193140,
+      76973124139,
+      76672167116,
+      74952780374,
+      72489811397,
+      71567135307,
+      68973441401,
+      67305676610
+    ],
+    "type": "pie",
+    "explicacion": "Distribución del presupuesto por sector económico y social."
+  }
+}

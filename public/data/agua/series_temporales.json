@@ -1,0 +1,240 @@
+[
+  {
+    "Año":1990,
+    "Temperatura Temperatura muestra °C":14.4426315789,
+    "Conductividad Específica (µS\/cm a 25°C)":139.2521052632,
+    "Ph a 25°C":7.6052631579,
+    "Transparencia secchi (m)":3.275
+  },
+  {
+    "Año":1991,
+    "Temperatura Temperatura muestra °C":15.2668613139,
+    "Conductividad Específica (µS\/cm a 25°C)":117.6105839416,
+    "Ph a 25°C":7.3805036496,
+    "Transparencia secchi (m)":2.0523722628
+  },
+  {
+    "Año":1992,
+    "Temperatura Temperatura muestra °C":11.9333333333,
+    "Conductividad Específica (µS\/cm a 25°C)":116.7333333333,
+    "Ph a 25°C":7.3806666667,
+    "Transparencia secchi (m)":0.0
+  },
+  {
+    "Año":1993,
+    "Temperatura Temperatura muestra °C":13.6071428571,
+    "Conductividad Específica (µS\/cm a 25°C)":117.4151785714,
+    "Ph a 25°C":7.2966964286,
+    "Transparencia secchi (m)":4.3619642857
+  },
+  {
+    "Año":1994,
+    "Temperatura Temperatura muestra °C":13.89140625,
+    "Conductividad Específica (µS\/cm a 25°C)":105.32265625,
+    "Ph a 25°C":7.3867578125,
+    "Transparencia secchi (m)":6.86109375
+  },
+  {
+    "Año":1995,
+    "Temperatura Temperatura muestra °C":12.9173515982,
+    "Conductividad Específica (µS\/cm a 25°C)":112.3904109589,
+    "Ph a 25°C":7.7785844749,
+    "Transparencia secchi (m)":7.3794520548
+  },
+  {
+    "Año":1996,
+    "Temperatura Temperatura muestra °C":14.9974025974,
+    "Conductividad Específica (µS\/cm a 25°C)":148.2645021645,
+    "Ph a 25°C":7.6573593074,
+    "Transparencia secchi (m)":6.6448051948
+  },
+  {
+    "Año":1997,
+    "Temperatura Temperatura muestra °C":13.9190963855,
+    "Conductividad Específica (µS\/cm a 25°C)":108.7156626506,
+    "Ph a 25°C":7.4706536145,
+    "Transparencia secchi (m)":5.6203012048
+  },
+  {
+    "Año":1998,
+    "Temperatura Temperatura muestra °C":14.9306772908,
+    "Conductividad Específica (µS\/cm a 25°C)":121.9386454183,
+    "Ph a 25°C":7.6324701195,
+    "Transparencia secchi (m)":5.8104780876
+  },
+  {
+    "Año":1999,
+    "Temperatura Temperatura muestra °C":14.9971428571,
+    "Conductividad Específica (µS\/cm a 25°C)":173.0376571429,
+    "Ph a 25°C":7.3577142857,
+    "Transparencia secchi (m)":2.9973142857
+  },
+  {
+    "Año":2000,
+    "Temperatura Temperatura muestra °C":14.3399224806,
+    "Conductividad Específica (µS\/cm a 25°C)":129.2984496124,
+    "Ph a 25°C":7.3215116279,
+    "Transparencia secchi (m)":5.8915116279
+  },
+  {
+    "Año":2001,
+    "Temperatura Temperatura muestra °C":13.3896786389,
+    "Conductividad Específica (µS\/cm a 25°C)":87.7852551985,
+    "Ph a 25°C":7.6064177694,
+    "Transparencia secchi (m)":7.8094139887
+  },
+  {
+    "Año":2002,
+    "Temperatura Temperatura muestra °C":13.0647761675,
+    "Conductividad Específica (µS\/cm a 25°C)":86.9441706924,
+    "Ph a 25°C":7.4089049919,
+    "Transparencia secchi (m)":7.677037037
+  },
+  {
+    "Año":2003,
+    "Temperatura Temperatura muestra °C":13.5431599229,
+    "Conductividad Específica (µS\/cm a 25°C)":92.0676300578,
+    "Ph a 25°C":7.4678998073,
+    "Transparencia secchi (m)":7.8135067437
+  },
+  {
+    "Año":2004,
+    "Temperatura Temperatura muestra °C":13.4020091324,
+    "Conductividad Específica (µS\/cm a 25°C)":87.1303652968,
+    "Ph a 25°C":7.5651369863,
+    "Transparencia secchi (m)":7.5616438356
+  },
+  {
+    "Año":2005,
+    "Temperatura Temperatura muestra °C":12.9392170819,
+    "Conductividad Específica (µS\/cm a 25°C)":96.1432384342,
+    "Ph a 25°C":7.4960854093,
+    "Transparencia secchi (m)":7.9287882562
+  },
+  {
+    "Año":2006,
+    "Temperatura Temperatura muestra °C":12.7309298246,
+    "Conductividad Específica (µS\/cm a 25°C)":85.9686140351,
+    "Ph a 25°C":7.3967368421,
+    "Transparencia secchi (m)":8.3986842105
+  },
+  {
+    "Año":2007,
+    "Temperatura Temperatura muestra °C":11.4843668763,
+    "Conductividad Específica (µS\/cm a 25°C)":87.5519916143,
+    "Ph a 25°C":7.5283857442,
+    "Transparencia secchi (m)":9.7083018868
+  },
+  {
+    "Año":2008,
+    "Temperatura Temperatura muestra °C":14.3224662813,
+    "Conductividad Específica (µS\/cm a 25°C)":97.5882466281,
+    "Ph a 25°C":7.3568439306,
+    "Transparencia secchi (m)":8.6438150289
+  },
+  {
+    "Año":2009,
+    "Temperatura Temperatura muestra °C":13.1998126065,
+    "Conductividad Específica (µS\/cm a 25°C)":76.6170357751,
+    "Ph a 25°C":7.5097649063,
+    "Transparencia secchi (m)":8.0561499148
+  },
+  {
+    "Año":2010,
+    "Temperatura Temperatura muestra °C":15.2539189189,
+    "Conductividad Específica (µS\/cm a 25°C)":49.6932432432,
+    "Ph a 25°C":7.4887837838,
+    "Transparencia secchi (m)":6.1635135135
+  },
+  {
+    "Año":2011,
+    "Temperatura Temperatura muestra °C":13.8614942529,
+    "Conductividad Específica (µS\/cm a 25°C)":63.5724137931,
+    "Ph a 25°C":7.454137931,
+    "Transparencia secchi (m)":8.4264367816
+  },
+  {
+    "Año":2012,
+    "Temperatura Temperatura muestra °C":12.126835443,
+    "Conductividad Específica (µS\/cm a 25°C)":60.153164557,
+    "Ph a 25°C":7.6393670886,
+    "Transparencia secchi (m)":8.5734177215
+  },
+  {
+    "Año":2013,
+    "Temperatura Temperatura muestra °C":13.1421135647,
+    "Conductividad Específica (µS\/cm a 25°C)":287.7059936909,
+    "Ph a 25°C":7.6008201893,
+    "Transparencia secchi (m)":9.2517981073
+  },
+  {
+    "Año":2014,
+    "Temperatura Temperatura muestra °C":13.0592727273,
+    "Conductividad Específica (µS\/cm a 25°C)":565.2775757576,
+    "Ph a 25°C":7.773030303,
+    "Transparencia secchi (m)":5.4703030307
+  },
+  {
+    "Año":2015,
+    "Temperatura Temperatura muestra °C":13.4000447761,
+    "Conductividad Específica (µS\/cm a 25°C)":248.2308457711,
+    "Ph a 25°C":7.6684079602,
+    "Transparencia secchi (m)":8.6179104478
+  },
+  {
+    "Año":2016,
+    "Temperatura Temperatura muestra °C":13.7898709677,
+    "Conductividad Específica (µS\/cm a 25°C)":236.8811059908,
+    "Ph a 25°C":7.6721290323,
+    "Transparencia secchi (m)":8.4811059908
+  },
+  {
+    "Año":2017,
+    "Temperatura Temperatura muestra °C":13.849931677,
+    "Conductividad Específica (µS\/cm a 25°C)":259.5782608696,
+    "Ph a 25°C":7.6609627329,
+    "Transparencia secchi (m)":7.5708074534
+  },
+  {
+    "Año":2018,
+    "Temperatura Temperatura muestra °C":13.4185253456,
+    "Conductividad Específica (µS\/cm a 25°C)":391.338156682,
+    "Ph a 25°C":7.6695437788,
+    "Transparencia secchi (m)":6.435483871
+  },
+  {
+    "Año":2019,
+    "Temperatura Temperatura muestra °C":13.5759601329,
+    "Conductividad Específica (µS\/cm a 25°C)":154.7000996678,
+    "Ph a 25°C":7.5961993355,
+    "Transparencia secchi (m)":7.415282392
+  },
+  {
+    "Año":2020,
+    "Temperatura Temperatura muestra °C":11.9437619048,
+    "Conductividad Específica (µS\/cm a 25°C)":51.2380952381,
+    "Ph a 25°C":7.4288095238,
+    "Transparencia secchi (m)":0.0
+  },
+  {
+    "Año":2021,
+    "Temperatura Temperatura muestra °C":12.465800464,
+    "Conductividad Específica (µS\/cm a 25°C)":151.8921809745,
+    "Ph a 25°C":7.4367981439,
+    "Transparencia secchi (m)":0.0
+  },
+  {
+    "Año":2022,
+    "Temperatura Temperatura muestra °C":14.3450239726,
+    "Conductividad Específica (µS\/cm a 25°C)":202.2565068493,
+    "Ph a 25°C":7.5023287671,
+    "Transparencia secchi (m)":0.0
+  },
+  {
+    "Año":2023,
+    "Temperatura Temperatura muestra °C":13.669559322,
+    "Conductividad Específica (µS\/cm a 25°C)":74.7178531073,
+    "Ph a 25°C":7.7703389831,
+    "Transparencia secchi (m)":0.0
+  }
+]

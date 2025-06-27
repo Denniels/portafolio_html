@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Currículum Vitae - Daniel Andrés Mardones Sanhueza</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <script defer src="../js/navigation.js"></script>
+  <style>
+    body { font-family: 'Georgia', serif; background: var(--main-bg, #f8fafd); color: var(--main-text, #222); }
+    .cv-container { max-width: 900px; margin: 2em auto; background: #fff; box-shadow: 0 2px 16px #0001; border-radius: 16px; padding: 2.5em 2em; background: var(--card-bg, #fff); color: var(--main-text, #222); }
+    h1, h2, h3 { font-family: 'Georgia', serif; color: var(--main-color, #1a2a4f); }
+    h1 { font-size: 2.2em; margin-bottom: 0.2em; }
+    h2 { font-size: 1.3em; margin-top: 1.5em; border-bottom: 1px solid #e0e0e0; padding-bottom: 0.2em; }
+    h3 { font-size: 1.1em; margin-top: 1.2em; }
+    ul, ol { margin: 0.2em 0 1em 1.5em; }
+    .cv-section { margin-bottom: 1.5em; }
+    .cv-contact { font-size: 1em; margin-bottom: 1.5em; }
+    .cv-contact a { color: #1a2a4f; text-decoration: none; }
+    .cv-download { float: right; margin-top: -2.5em; }
+    .cv-download button { background: #1a2a4f; color: #fff; border: none; border-radius: 6px; padding: 0.5em 1.2em; font-size: 1em; cursor: pointer; }
+    .cv-download button:hover { background: #0e1833; }
+    blockquote { font-style: italic; color: #444; border-left: 4px solid #1a2a4f; margin: 1.5em 0; padding-left: 1em; }
+    @media print { .cv-download { display: none; } body { background: #fff; } .cv-container { box-shadow: none; border-radius: 0; } .sidebar { display: none !important; } .container { grid-template-columns: 1fr !important; } }
+    .container { display: grid; grid-template-columns: 270px 1fr; min-height: 100vh; }
+    .sidebar {
+      background: var(--main-bg, #f0f4fa);
+      border-right: 1px solid #e0e0e0;
+      padding: 2em 1em 1em 1em;
+      min-height: 100vh;
+      color: var(--main-text, #222);
+      transition: background 0.3s, color 0.3s;
+    }
+    @media (max-width: 900px) { .container { grid-template-columns: 1fr; } .sidebar { display: none; } .cv-container { margin: 1em 0.5em; } }
+    body.fadeout {
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+    .fadein {
+      animation: fadeInPage 0.7s;
+    }
+    @keyframes fadeInPage {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .panel-visualizaciones-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5em;
+      max-width: 1000px;
+      margin: 0 auto 2em auto;
+    }
+    .sidebar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .sidebar-nav li {
+    margin: 0.7em 0;
+  }
+  .sidebar-nav a {
+    display: block;
+    padding: 0.85em 1.5em;
+    border-radius: 10px;
+    color: var(--main-color, #0077b6);
+    font-weight: 600;
+    font-size: 1.08em;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    background: linear-gradient(90deg, var(--card-bg, #e0f7fa) 0%, #b2ebf2 100%);
+    box-shadow: 0 1px 6px #00b4ff11;
+    transition: background 0.3s, color 0.3s, transform 0.18s;
+    position: relative;
+    overflow: hidden;
+  }
+  .sidebar-nav a:hover, .sidebar-nav a:focus {
+    background: linear-gradient(90deg, var(--main-color, #00b4ff) 0%, #90e0ef 100%);
+    color: #fff;
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 4px 16px #00b4ff33;
+  }
+  .sidebar-nav a:active {
+    background: linear-gradient(90deg, var(--main-color, #0077b6) 0%, #48cae4 100%);
+    color: #fff;
+    transform: scale(0.98);
+  }
+  .sidebar-nav a::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0; top: 0; right: 0; bottom: 0;
+    background: rgba(0,180,255,0.08);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+  }
+  .sidebar-nav a:hover::after, .sidebar-nav a:focus::after {
+    opacity: 1;
+  }
+    .viz-row {
+      display: flex;
+      flex-direction: row;
+      gap: 2em;
+      align-items: stretch;
+      background: var(--card-bg, #f8fafd);
+      border-radius: 14px;
+      box-shadow: 0 2px 8px #00b4ff11;
+      padding: 2em 2em 2em 2em;
+      margin-bottom: 0.5em;
+      flex-wrap: wrap;
+    }
+    .viz-row.reverse {
+      flex-direction: row-reverse;
+    }
+    .viz-chart {
+      flex: 1 1 350px;
+      min-width: 320px;
+      max-width: 420px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .viz-explanation {
+      flex: 1 1 320px;
+      min-width: 260px;
+      max-width: 480px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-size: 1.08em;
+      color: var(--main-text);
+      padding: 0.5em 0 0.5em 0;
+    }
+    @media (max-width: 900px) {
+      .viz-row, .viz-row.reverse {
+        flex-direction: column !important;
+        gap: 1.2em;
+        padding: 1.2em 0.5em 1.2em 0.5em;
+      }
+      .viz-chart, .viz-explanation {
+        max-width: 100%;
+        min-width: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <nav>
+        <ul class="sidebar-nav">
+          <li><a href="../index.html">Principal</a></li>
+          <li><a href="emisiones.html">Emisiones CO₂</a></li>
+          <li><a href="agua.html">Calidad del Agua</a></li>
+          <li><a href="demografia.html">Demografía</a></li>
+          <li><a href="presupuesto.html">Presupuesto Público</a></li>
+          <li><a href="curriculum.html" class="active">Currículum</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="productos.html">Productos</a></li>
+        </ul>
+      </nav>
+      <section id="contacto" style="margin-top:2em;text-align:center;">
+        <h2>Contacto</h2>
+        <p>Puedes encontrarme en:</p>
+        <a href="https://github.com/Denniels" target="_blank" style="margin:0 1em;display:inline-block;">
+          <img src="https://img.icons8.com/ios-glyphs/40/000000/github.png" alt="GitHub" style="vertical-align:middle;"/> GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/daniel-andres-mardones-sanhueza-27b73777" target="_blank" style="margin:0 1em;display:inline-block;">
+          <img src="https://img.icons8.com/ios-filled/40/0a66c2/linkedin.png" alt="LinkedIn" style="vertical-align:middle;"/> LinkedIn
+        </a>
+      </section>
+      <div id="theme-selector" style="margin:2em 0 0 0;padding:1.2em 1em 1.5em 1em;background:rgba(0,180,255,0.07);border-radius:14px;box-shadow:0 1px 8px #00b4ff11;text-align:center;">
+        <h3 style="margin-bottom:0.7em;font-size:1.1em;color:#0077b6;">Tema y color</h3>
+        <div style="display:flex;flex-direction:column;gap:0.7em;align-items:center;">
+          <div style="margin-bottom:0.3em;">
+            <label style="font-weight:600;margin-right:0.7em;">Modo:</label>
+            <select id="theme-mode" style="padding:0.3em 1em;border-radius:8px;border:1px solid #b2ebf2;font-size:1em;">
+              <option value="light">Claro</option>
+              <option value="dark">Oscuro</option>
+            </select>
+          </div>
+          <div>
+            <label style="font-weight:600;margin-right:0.7em;">Color:</label>
+            <select id="theme-color" style="padding:0.3em 1em;border-radius:8px;border:1px solid #b2ebf2;font-size:1em;">
+              <option value="gray" selected>Gris</option>
+              <option value="blue">Azul</option>
+              <option value="green">Verde</option>
+              <option value="purple">Púrpura</option>
+              <option value="gold">Dorado</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <main>
+      <div class="cv-container">
+        <div class="cv-download">
+          <button onclick="window.print()">Descargar PDF</button>
+        </div>
+        <h1>Daniel Andrés Mardones Sanhueza</h1>
+        <div class="cv-contact">
+          <b>LinkedIn:</b> <a href="https://www.linkedin.com/in/daniel-andres-mardones-sanhueza-27b73777" target="_blank">daniel-andres-mardones-sanhueza</a> &nbsp;|
+          <b>GitHub:</b> <a href="https://github.com/Denniels" target="_blank">Denniels</a> &nbsp;|
+          <b>Email:</b> <a href="mailto:daniel.mardones@integralservicespa.cl">daniel.mardones@integralservicespa.cl</a> &nbsp;|
+          <b>Teléfono:</b> +56 9 6366 6300 &nbsp;|
+          <b>Ubicación:</b> Temuco, Chile
+        </div>
+        <h2>Perfil Profesional</h2>
+        <p>Profesional con más de 10 años de experiencia en mantenimiento industrial, transitando hacia el análisis y la ciencia de datos. Capacidad para combinar experiencia técnica con habilidades analíticas, generando soluciones innovadoras para la industria.</p>
+        <h2>Formación</h2>
+        <ul>
+          <li><b>Data Science</b>, Academia Desafío Latam (2023-2024)</li>
+        </ul>
+        <h2>Experiencia Profesional</h2>
+        <h3>CEO y Técnico de Servicios en Terreno | Integral Service <span style="float:right;font-weight:normal;">2015 - Presente</span></h3>
+        <ul>
+          <li>Optimización de procesos industriales</li>
+          <li>Análisis de datos para mantenimiento predictivo</li>
+          <li>Gestión de equipos técnicos</li>
+          <li>Implementación de sistemas de monitoreo</li>
+          <li>Reducción de costos operacionales en 15%</li>
+        </ul>
+        <h3>Jefe de Mantenimiento | Nutraseed <span style="float:right;font-weight:normal;">2013 - 2015</span></h3>
+        <ul>
+          <li>Implementación de programas de mantenimiento</li>
+          <li>Mejora continua de procesos</li>
+          <li>Supervisión de operaciones</li>
+          <li>Gestión de inventarios técnicos</li>
+        </ul>
+        <h2>Habilidades Técnicas</h2>
+        <h3>Análisis de Datos</h3>
+        <ul>
+          <li><b>Lenguajes:</b> Python, SQL</li>
+          <li><b>Librerías:</b> Pandas, NumPy, Matplotlib, Plotly, Seaborn</li>
+          <li><b>Bases de Datos:</b> PostgreSQL, MySQL, BigQuery</li>
+          <li><b>Visualización:</b> Streamlit, Dash, Power BI</li>
+          <li><b>Machine Learning:</b> Scikit-learn, básico de TensorFlow</li>
+        </ul>
+        <h3>Mantenimiento Industrial</h3>
+        <ul>
+          <li><b>Automatización:</b> PLCs (Siemens, Allen Bradley)</li>
+          <li><b>Análisis:</b> Vibraciones, termografía, ultrasonido</li>
+          <li><b>Sistemas:</b> CMMS, SAP PM</li>
+          <li><b>Mantenimiento:</b> Predictivo, preventivo, correctivo</li>
+          <li><b>Normas:</b> ISO 55000, RCM</li>
+        </ul>
+        <h3>Herramientas Generales</h3>
+        <ul>
+          <li><b>Desarrollo:</b> Git, GitHub, VS Code</li>
+          <li><b>Cloud:</b> Google Cloud Platform (básico)</li>
+          <li><b>Ofimática:</b> Excel avanzado, PowerPoint, Word</li>
+          <li><b>Gestión:</b> Project, Primavera P6</li>
+        </ul>
+        <h2>Proyectos Destacados en Data Science</h2>
+        <ul>
+          <li><b>Análisis de Emisiones CO2 en Chile:</b> Análisis temporal de emisiones por sector, visualizaciones interactivas con Plotly, identificación de tendencias y patrones.</li>
+          <li><b>Calidad del Agua - Análisis Predictivo:</b> Modelado de parámetros de calidad del agua, mapas interactivos con Folium, dashboard en Streamlit.</li>
+          <li><b>Análisis Demográfico:</b> Consultas a la API Banco Mundial, estadísticas del INE Chile, visualizaciones de distribución poblacional.</li>
+          <li><b>Presupuesto Público de Chile:</b> Análisis de asignación presupuestaria, tendencias de gasto por ministerio, métricas de eficiencia fiscal.</li>
+        </ul>
+        <h2>Logros y Reconocimientos</h2>
+        <ul>
+          <li><b>Reducción de Costos:</b> 15% en costos de mantenimiento mediante análisis predictivo</li>
+          <li><b>Proyecto de Automatización:</b> Automatización completa de líneas de producción</li>
+          <li><b>Mentoring:</b> Formación de 5+ técnicos de campo, profesionales de la industria</li>
+        </ul>
+        <h2>Formación Continua</h2>
+        <ul>
+          <li><b>Google Cloud Platform</b> - Platzi (2024)</li>
+          <li><b>Machine Learning Fundamentals</b> - Academia DesafioLATAM - DataCamp (2024)</li>
+          <li><b>SQL para Data Science</b> - Academia DesafioLATAM - DataCamp (2023)</li>
+          <li><b>Python para Análisis de Datos</b> - Academia DesafioLATAM - DataCamp (2023)</li>
+        </ul>
+        <h2>Idiomas</h2>
+        <ul>
+          <li><b>Español:</b> Nativo</li>
+          <li><b>Inglés:</b> Básico (A1)</li>
+        </ul>
+        <blockquote>
+          "La transición del mantenimiento industrial al análisis de datos me ha permitido combinar mi experiencia técnica con nuevas habilidades analíticas, creando soluciones innovadoras para problemas industriales complejos. Busco la oportunidad para integrarme como junior en áreas de desarrollo, programación, análisis de datos, ciencia de datos e inteligencia artificial."
+        </blockquote>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

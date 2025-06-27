@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Demo - Generador de Reportes Inteligente</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Generador de Reportes Inteligente <span style="font-size:0.7em;">(DEMO)</span></h1>
+      <p>Sube un archivo de datos (CSV, Excel, JSON) o elige un dataset de ejemplo. Visualiza análisis exploratorio y gráficos al instante. Todo el procesamiento ocurre en tu navegador.</p>
+    </header>
+    <section class="upload-section">
+      <label for="file-input" class="upload-label">Subir archivo:</label>
+      <input type="file" id="file-input" accept=".csv, .xlsx, .xls, .json" />
+      <span style="margin:0 1em;">o</span>
+      <button id="load-demo" class="btn-demo">Cargar datos de ejemplo</button>
+    </section>
+    <section id="data-preview" class="data-preview" style="display:none;">
+      <h2>Vista previa de datos</h2>
+      <div id="table-container"></div>
+    </section>
+    <section id="analysis-section" class="analysis-section" style="display:none;">
+      <h2>Análisis Exploratorio</h2>
+      <div id="eda-summary"></div>
+      <h3>Gráficos</h3>
+      <div id="charts-container"></div>
+      <h3>Simulación IA (Clustering K-means)</h3>
+      <div id="ai-result"></div>
+      <div style="margin-top:2em;text-align:right;">
+        <button id="download-pdf" class="btn-demo">Descargar reporte PDF</button>
+      </div>
+    </section>
+    <footer>
+      <p style="font-size:0.95em;color:#888;margin-top:2em;">Demo gratuita - Todo el procesamiento es local. <a href="../../pages/productos.html">Volver a productos</a></p>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

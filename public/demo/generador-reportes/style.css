@@ -1,0 +1,70 @@
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f8fafd;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  max-width: 900px;
+  margin: 2.5em auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px #00b4ff22;
+  padding: 2em 2em 2em 2em;
+}
+header h1 {
+  color: #0077b6;
+  margin-bottom: 0.2em;
+}
+.upload-section {
+  margin: 2em 0 1.5em 0;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+.upload-label {
+  font-weight: 600;
+}
+.btn-demo {
+  background: #00b4ff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6em 1.3em;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 1px 6px #00b4ff22;
+  transition: background 0.2s;
+}
+.btn-demo:hover {
+  background: #0077b6;
+}
+.data-preview, .analysis-section {
+  margin-top: 2em;
+  background: #f0f8ff;
+  border-radius: 12px;
+  padding: 1.5em 1em;
+  box-shadow: 0 1px 8px #00b4ff11;
+}
+#table-container {
+  overflow-x: auto;
+  max-height: 320px;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 1em;
+}
+th, td {
+  border: 1px solid #b2ebf2;
+  padding: 0.5em 0.8em;
+  text-align: left;
+}
+th {
+  background: #e0f7fa;
+}
+footer {
+  text-align: center;
+  margin-top: 2em;
+}
