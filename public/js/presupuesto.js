@@ -2,9 +2,9 @@
 // Carga y visualización dinámica de datos de presupuesto público
 
 document.addEventListener('DOMContentLoaded', async function () {
-  const resumenUrl = '/public/data/presupuesto_publico/resumen_ejecutivo.json';
-  const datosUrl = '/public/data/presupuesto_publico/datos_visualizacion.json';
-  const metaUrl = '/public/data/presupuesto_publico/metadatos.json';
+  const resumenUrl = '../data/presupuesto_publico/resumen_ejecutivo.json';
+  const datosUrl = '../data/presupuesto_publico/datos_visualizacion.json';
+  const metaUrl = '../data/presupuesto_publico/metadatos.json';
 
   const resumenDiv = document.getElementById('resumen-presupuesto');
   const chartsDiv = document.getElementById('charts-presupuesto');
