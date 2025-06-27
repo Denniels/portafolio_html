@@ -173,8 +173,90 @@
     }
 </style>
 
+  <!-- Modal de bienvenida -->
+  <style>
+    #welcome-modal {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.3s;
+    }
+    #welcome-modal .modal-content {
+      background: #fff;
+      color: #1a2233;
+      border-radius: 16px;
+      box-shadow: 0 4px 32px #0077b633;
+      padding: 2.2em 2em 1.5em 2em;
+      max-width: 350px;
+      width: 95%;
+      text-align: center;
+      position: relative;
+    }
+    #welcome-modal h2 {
+      margin-bottom: 0.7em;
+      color: #0077b6;
+    }
+    #welcome-modal input {
+      width: 90%;
+      padding: 0.7em;
+      margin: 0.5em 0 1em 0;
+      border-radius: 8px;
+      border: 1px solid #b2ebf2;
+      font-size: 1em;
+    }
+    #welcome-modal button {
+      background: #0077b6;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 0.7em 1.5em;
+      font-weight: 600;
+      font-size: 1em;
+      margin-top: 0.5em;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    #welcome-modal button:hover {
+      background: #00b4ff;
+    }
+    #welcome-modal .skip-link {
+      display: block;
+      margin-top: 1.2em;
+      color: #0077b6;
+      text-decoration: underline;
+      cursor: pointer;
+      font-size: 0.98em;
+    }
+    @media (prefers-color-scheme: dark) {
+      #welcome-modal .modal-content {
+        background: #232c43;
+        color: #e0f7fa;
+      }
+      #welcome-modal input {
+        background: #181c24;
+        color: #e0f7fa;
+        border: 1px solid #48cae4;
+      }
+    }
+  </style>
 </head>
 <body>
+  <div id="welcome-modal" style="display:none;">
+    <div class="modal-content">
+      <h2>¡Bienvenido/a!</h2>
+      <p>¿Quieres personalizar tu experiencia? Ingresa tu nombre y correo electrónico.<br>O simplemente continúa.</p>
+      <form id="welcome-form">
+        <input type="text" id="user-name" name="user-name" placeholder="Tu nombre (opcional)" autocomplete="off" />
+        <input type="email" id="user-email" name="user-email" placeholder="Correo electrónico (opcional)" autocomplete="off" />
+        <button type="submit">Acceder</button>
+      </form>
+      <span class="skip-link" id="skip-welcome">Continuar sin datos</span>
+    </div>
+  </div>
   <div class="container">
     <aside class="sidebar">
       <h2>Portafolio</h2>
@@ -296,6 +378,69 @@
     </main>
   </div>
   <script src="js/navigation.js"></script>
+
+  <script>
+  // Modal de bienvenida y almacenamiento de usuario
+  function showWelcomeModal() {
+    document.getElementById('welcome-modal').style.display = 'flex';
+  }
+  function hideWelcomeModal() {
+    document.getElementById('welcome-modal').style.display = 'none';
+  }
+  function saveUserData(name, email) {
+    localStorage.setItem('userName', name);
+    localStorage.setItem('userEmail', email);
+  }
+  function getUserData() {
+    return {
+      name: localStorage.getItem('userName') || '',
+      email: localStorage.getItem('userEmail') || ''
+    };
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    // ...existing code...
+    // Modal bienvenida
+    const user = getUserData();
+    if (!user.name && !user.email) {
+      showWelcomeModal();
+    }
+    document.getElementById('welcome-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('user-name').value.trim();
+      const email = document.getElementById('user-email').value.trim();
+      saveUserData(name, email);
+      hideWelcomeModal();
+      mostrarSaludo(name);
+    });
+    document.getElementById('skip-welcome').addEventListener('click', function() {
+      saveUserData('', '');
+      hideWelcomeModal();
+      mostrarSaludo('');
+    });
+    mostrarSaludo(user.name);
+  });
+  function mostrarSaludo(nombre) {
+    let saludo = document.getElementById('saludo-usuario');
+    if (!saludo) {
+      const header = document.querySelector('header > div');
+      if (header) {
+        saludo = document.createElement('div');
+        saludo.id = 'saludo-usuario';
+        saludo.style.margin = '0.5em 0 0.5em 0';
+        saludo.style.fontWeight = 'bold';
+        saludo.style.fontSize = '1.1em';
+        header.insertBefore(saludo, header.firstChild);
+      }
+    }
+    if (saludo) {
+      if (nombre) {
+        saludo.textContent = `¡Hola, ${nombre}! Bienvenido/a al portafolio.`;
+      } else {
+        saludo.textContent = '';
+      }
+    }
+  }
+  </script>
 
   <script>
   // Selector de tema y color
