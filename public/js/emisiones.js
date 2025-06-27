@@ -26,9 +26,8 @@ document.addEventListener('DOMContentLoaded', async function() {
   conclusionesDiv.style = 'margin-top:2em;';
   panel.appendChild(conclusionesDiv);
 
-  // Cargar datos
-  // Permite override de ruta para Live Server
-  const basePath = window.EMISIONES_DATA_PATH || '../../app/data/cache/';
+  // Cargar datos desde la ruta correcta relativa a emisiones.html
+  const basePath = '../data/emisiones/';
   const emisionesAnuales = await fetch(basePath + 'emisiones_anuales.json').then(r => r.json());
   const emisionesRegionales = await fetch(basePath + 'emisiones_regionales.json').then(r => r.json());
 
@@ -48,21 +47,31 @@ document.addEventListener('DOMContentLoaded', async function() {
     { tipo: 'Motocicletas', emisiones: 100000 }
   ];
 
-  // Visualización: Gráfico de barras de emisiones anuales
-  const years = Object.keys(emisionesAnuales);
-  const values = Object.values(emisionesAnuales);
-
-  // Usar Chart.js para el gráfico de barras
+  // Visualización: Gráfico de barras de emisiones anuales (o de regiones si solo hay un año)
+  await loadChartJs();
+  let chartLabels, chartData, chartTitle, xTitle;
+  if (Object.keys(emisionesAnuales).length > 1) {
+    // Varios años: gráfico de barras temporal
+    chartLabels = Object.keys(emisionesAnuales);
+    chartData = Object.values(emisionesAnuales);
+    chartTitle = 'Emisiones anuales de CO₂ en Chile';
+    xTitle = 'Año';
+  } else {
+    // Solo un año: mostrar gráfico de barras por región
+    chartLabels = Object.keys(emisionesRegionales);
+    chartData = Object.values(emisionesRegionales).map(d => d.emisiones);
+    chartTitle = 'Emisiones de CO₂ por región (2023)';
+    xTitle = 'Región';
+  }
   const chartCanvas = document.createElement('canvas');
   chartDiv.appendChild(chartCanvas);
-  await loadChartJs();
   new Chart(chartCanvas.getContext('2d'), {
     type: 'bar',
     data: {
-      labels: years,
+      labels: chartLabels,
       datasets: [{
         label: 'Emisiones CO₂ (toneladas)',
-        data: values,
+        data: chartData,
         backgroundColor: 'rgba(54, 162, 235, 0.5)',
         borderColor: 'rgba(54, 162, 235, 1)',
         borderWidth: 1
@@ -72,7 +81,7 @@ document.addEventListener('DOMContentLoaded', async function() {
       responsive: true,
       plugins: {
         legend: { display: false },
-        title: { display: true, text: 'Emisiones anuales de CO₂ en Chile' },
+        title: { display: true, text: chartTitle },
         tooltip: {
           callbacks: {
             label: ctx => ` ${ctx.parsed.y.toLocaleString()} toneladas`
@@ -81,7 +90,7 @@ document.addEventListener('DOMContentLoaded', async function() {
       },
       scales: {
         y: { beginAtZero: true, title: { display: true, text: 'Toneladas de CO₂' } },
-        x: { title: { display: true, text: 'Año' } }
+        x: { title: { display: true, text: xTitle } }
       }
     }
   });

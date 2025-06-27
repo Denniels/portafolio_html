@@ -1,0 +1,98 @@
+{
+  "Antofagasta": {
+    "lat": -21.458455733051906,
+    "lon": -68.31522941169325,
+    "emisiones": 567726.127816722,
+    "region_original": "Antofagasta"
+  },
+  "Araucanía": {
+    "lat": -35.0,
+    "lon": -71.0,
+    "emisiones": 376510.039409102,
+    "region_original": "Araucanía"
+  },
+  "Arica y Parinacota": {
+    "lat": -17.830526107527184,
+    "lon": -69.57151229121811,
+    "emisiones": 175722.45051064598,
+    "region_original": "Arica y Parinacota"
+  },
+  "Atacama": {
+    "lat": -28.594888665162003,
+    "lon": -70.60308850455216,
+    "emisiones": 185258.386509713,
+    "region_original": "Atacama"
+  },
+  "Aysén del Gral. Carlos Ibáñez del Campo": {
+    "lat": -35.0,
+    "lon": -71.0,
+    "emisiones": 95851.111442662,
+    "region_original": "Aysén del Gral. Carlos Ibáñez del Campo"
+  },
+  "Biobío": {
+    "lat": -37.621368521249615,
+    "lon": -71.74919448705847,
+    "emisiones": 1513519.742756942,
+    "region_original": "Biobío"
+  },
+  "Coquimbo": {
+    "lat": -29.892062437423213,
+    "lon": -70.38220007765375,
+    "emisiones": 727799.394814241,
+    "region_original": "Coquimbo"
+  },
+  "Libertador Gral. Bernardo O'Higgins": {
+    "lat": -35.0,
+    "lon": -71.0,
+    "emisiones": 532442.141889892,
+    "region_original": "Libertador Gral. Bernardo O'Higgins"
+  },
+  "Los Lagos": {
+    "lat": -43.18037714782903,
+    "lon": -72.0070759405898,
+    "emisiones": 383272.05831564503,
+    "region_original": "Los Lagos"
+  },
+  "Los Ríos": {
+    "lat": -40.118595923085536,
+    "lon": -72.11549138955044,
+    "emisiones": 107634.50628356,
+    "region_original": "Los Ríos"
+  },
+  "Magallanes y de la Antártica Chilena": {
+    "lat": -35.0,
+    "lon": -71.0,
+    "emisiones": 122236.648338531,
+    "region_original": "Magallanes y de la Antártica Chilena"
+  },
+  "Maule": {
+    "lat": -36.26193679182069,
+    "lon": -71.6457296799461,
+    "emisiones": 561278.491751564,
+    "region_original": "Maule"
+  },
+  "Metropolitana": {
+    "lat": -34.042747295191575,
+    "lon": -71.0566049209952,
+    "emisiones": 7479605.552889851,
+    "region_original": "Metropolitana"
+  },
+  "Tarapacá": {
+    "lat": -20.479665370582712,
+    "lon": -68.9131951386554,
+    "emisiones": 396031.43101804797,
+    "region_original": "Tarapacá"
+  },
+  "Valparaíso": {
+    "lat": -33.14719250563133,
+    "lon": -71.25422534085355,
+    "emisiones": 1566255.077053551,
+    "region_original": "Valparaíso"
+  },
+  "Ñuble": {
+    "lat": -36.70192504895286,
+    "lon": -71.58123372197129,
+    "emisiones": 203130.641817386,
+    "region_original": "Ñuble"
+  }
+}

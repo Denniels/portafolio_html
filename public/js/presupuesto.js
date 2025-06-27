@@ -109,35 +109,73 @@ document.addEventListener('DOMContentLoaded', async function () {
       idx++;
     }
 
-    // Renderizar la grilla alternada
+    // Renderizar la grilla: gráfico arriba, explicación abajo (tarjeta)
     chartsDiv.innerHTML = '';
     visualizaciones.forEach((viz, i) => {
-      const row = document.createElement('div');
-      row.className = 'viz-row';
-      row.style.display = 'grid';
-      row.style.gridTemplateColumns = '1fr 1fr';
-      row.style.alignItems = 'center';
-      row.style.gap = '2em';
-      row.style.marginBottom = '2.5em';
-      if (i % 2 === 0) {
-        row.innerHTML = `
-          <div class="viz-chart"><canvas id="${viz.chartId}"></canvas></div>
-          <div class="viz-expl">${viz.explicacion}</div>
-        `;
-      } else {
-        row.innerHTML = `
-          <div class="viz-expl">${viz.explicacion}</div>
-          <div class="viz-chart"><canvas id="${viz.chartId}"></canvas></div>
-        `;
-      }
-      chartsDiv.appendChild(row);
+      const card = document.createElement('div');
+      card.className = 'viz-card';
+      card.style.background = '#fff';
+      card.style.borderRadius = '18px';
+      card.style.boxShadow = '0 2px 16px #00b4ff11';
+      card.style.padding = '1.5em 1.2em 1.2em 1.2em';
+      card.style.margin = '0 auto 2.5em auto';
+      card.style.maxWidth = '900px';
+      card.style.display = 'flex';
+      card.style.flexDirection = 'column';
+      card.style.alignItems = 'center';
+      card.style.gap = '1.2em';
+      // Gráfico
+      const chartDiv = document.createElement('div');
+      chartDiv.className = 'viz-chart';
+      chartDiv.style.width = '100%';
+      chartDiv.style.maxWidth = '700px';
+      chartDiv.style.minWidth = '0';
+      chartDiv.style.display = 'flex';
+      chartDiv.style.alignItems = 'center';
+      chartDiv.style.justifyContent = 'center';
+      const canvas = document.createElement('canvas');
+      canvas.id = viz.chartId;
+      canvas.style.width = '100%';
+      canvas.style.maxWidth = '100%';
+      canvas.style.height = '380px';
+      chartDiv.appendChild(canvas);
+      // Explicación
+      const explDiv = document.createElement('div');
+      explDiv.className = 'viz-expl';
+      explDiv.innerHTML = viz.explicacion;
+      explDiv.style.background = 'linear-gradient(90deg,#e0f7fa 0%,#b2ebf2 100%)';
+      explDiv.style.borderRadius = '14px';
+      explDiv.style.boxShadow = '0 2px 12px #00b4ff11';
+      explDiv.style.padding = '1.2em 1.5em';
+      explDiv.style.fontSize = '1.13em';
+      explDiv.style.color = '#0077b6';
+      explDiv.style.lineHeight = '1.7';
+      explDiv.style.width = '100%';
+      explDiv.style.maxWidth = '700px';
+      explDiv.style.margin = '0 auto';
+      // Agregar al card
+      card.appendChild(chartDiv);
+      card.appendChild(explDiv);
+      chartsDiv.appendChild(card);
     });
-    // Inicializar los gráficos
+    // Inicializar los gráficos y hacerlos 100% responsivos
     visualizaciones.forEach((viz) => {
-      new Chart(document.getElementById(viz.chartId).getContext('2d'), {
+      const ctx = document.getElementById(viz.chartId).getContext('2d');
+      new Chart(ctx, {
         type: viz.chartType,
         data: viz.chartData,
-        options: viz.chartOptions
+        options: {
+          ...viz.chartOptions,
+          maintainAspectRatio: false,
+          responsive: true,
+          plugins: {
+            ...viz.chartOptions.plugins,
+            legend: viz.chartOptions.plugins.legend || { display: false },
+            title: viz.chartOptions.plugins.title || undefined
+          },
+          layout: { padding: 0 },
+          animation: { duration: 600 }
+        }
       });
     });
 
@@ -158,23 +196,11 @@ document.addEventListener('DOMContentLoaded', async function () {
       c.style.background = '#fff';
       c.style.borderRadius = '14px';
       c.style.boxShadow = '0 2px 12px #00b4ff11';
-      c.style.padding = '1.2em 1.5em';
+      c.style.padding = '0.5em 0.5em';
+      c.style.width = '100%';
+      c.style.minWidth = '0';
+      c.style.overflow = 'hidden';
     });
-    // Responsive
-    chartsDiv.style.gridTemplateColumns = '1fr';
-    chartsDiv.style.gap = '0';
-    chartsDiv.querySelectorAll('.viz-row').forEach(r => {
-      r.style.gridTemplateColumns = '1fr';
-      r.style.display = 'flex';
-      r.style.flexDirection = 'row';
-      r.style.flexWrap = 'wrap';
-      r.style.gap = '2em';
-    });
-    if (window.innerWidth < 700) {
-      chartsDiv.querySelectorAll('.viz-row').forEach(r => {
-        r.style.flexDirection = 'column';
-      });
-    }
 
   } catch (err) {
     resumenDiv.innerHTML = '<b>Error cargando datos de presupuesto público.</b>';
